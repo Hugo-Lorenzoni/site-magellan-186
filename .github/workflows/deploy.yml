@@ -71,9 +71,6 @@ jobs:
     runs-on: self-hosted
     name: Deploy
     steps:
-      - name: Ensure Nginx container is stopped
-        run: docker stop astro-site || true
-
       - name: Start Nginx container
         id: deployment
-        run: docker run -d -p 8080:80 --name astro-site -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro nginx:alpine
+        run: docker run -d -p 8080:80 --name astro-site -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro nginx:alpine || docker start astro-site
