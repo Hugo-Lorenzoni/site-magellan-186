@@ -1,0 +1,98 @@
+---
+import MenuClose from "@icons/MenuClose.astro";
+import MenuOpen from "@icons/MenuOpen.astro";
+
+import LinkButton from "@components/LinkButton.astro";
+import MenuLink from "@components/MenuLink.astro";
+
+import { Image } from "astro:assets";
+import logoMagellan from "@images/logo-magellan-outline.png";
+
+const navItems = [
+  { title: "Comité", href: "/comité" },
+  { title: "Game - LAN party", href: "/game" },
+  { title: "Local 500", href: "/local-500" },
+  {
+    title: "Admins",
+    href: "/admins",
+  },
+  { title: "Contactez-nous", href: "/contact", cta: true },
+];
+---
+
+<header class="sticky top-0 z-20 bg-dark font-semibold text-primary">
+  <nav class="mx-auto flex justify-between gap-4 p-4 lg:container">
+    <a
+      href="/"
+      class="xs:text-lg inline-flex items-center gap-2 text-base duration-150 hover:opacity-80"
+    >
+      <Image src={logoMagellan} alt="Logo Cercle Magellan FPMs" class="w-36" />
+      <span class="sr-only">Cercle Magellan</span>
+    </a>
+    <ul
+      class="hidden flex-wrap justify-between gap-4 text-sm lg:flex xl:text-base"
+    >
+      {
+        navItems.map((navItem) => (
+          <li class="mx-auto flex items-center justify-center">
+            {navItem.cta ? (
+              <LinkButton href={navItem.href} title={navItem.title} />
+            ) : (
+              <MenuLink href={navItem.href} title={navItem.title} />
+            )}
+          </li>
+        ))
+      }
+    </ul>
+    <button id="menu-toggle" class="focus:outline-none lg:hidden">
+      <MenuOpen class="h-8 w-8" />
+    </button>
+  </nav>
+  <div
+    id="mobile-menu"
+    data-visible="false"
+    class="shadow-box fixed bottom-0 right-0 top-0 hidden bg-dark bg-opacity-95 backdrop-blur-sm lg:hidden"
+  >
+    <div class="flex justify-end p-4">
+      <button id="menu-close" class="my-5">
+        <MenuClose class="h-8 w-8" />
+      </button>
+    </div>
+    <ul class="flex h-full flex-col gap-4 p-8">
+      {
+        navItems.map((navItem) => (
+          <li class="flex flex-col space-y-4">
+            <div class="inline-flex">
+              {navItem.cta ? (
+                <LinkButton href={navItem.href} title={navItem.title} />
+              ) : (
+                <MenuLink href={navItem.href} title={navItem.title} />
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("click", function (event) {
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    if (event.target instanceof Node) {
+      if (menuToggle?.contains(event.target)) {
+        mobileMenu?.classList.remove("hidden");
+        mobileMenu?.setAttribute("data-visible", "true");
+      } else if (
+        menuClose?.contains(event.target) ||
+        (!mobileMenu?.contains(event.target) &&
+          mobileMenu?.getAttribute("data-visible") === "true")
+      ) {
+        mobileMenu?.classList.add("hidden");
+        mobileMenu?.setAttribute("data-visible", "false");
+      }
+    }
+  });
+</script>

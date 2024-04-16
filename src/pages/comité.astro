@@ -1,0 +1,105 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import comité185 from "@images/comité185.jpg";
+import comité184 from "@images/comité184.jpg";
+import { Image } from "astro:assets";
+
+const comités = [
+  {
+    promo: "185",
+    président: "Kevin Dubrulle",
+    trésorier: "Hugo Lorenzoni [*]***",
+    secretaire: "Lucy Bogaert",
+    imageComite: comité185,
+  },
+  {
+    promo: "184",
+    président: "Alan Denys",
+    trésorier: "Kevin Dubrulle",
+    secretaire: "Hugo Lorenzoni [*]***",
+    imageComite: comité184,
+  },
+];
+---
+
+<Layout title="Comités">
+  <div class="container mx-auto mt-6 px-4">
+    <h1 class="text-3xl font-bold">Comités du Cercle Magellan</h1>
+    <div class="mt-6 space-y-4">
+      {
+        comités.map((comité, key) => (
+          <section class="overflow-hidden rounded-lg md:flex">
+            {key % 2 === 0 ? (
+              <>
+                <div class="w-full bg-primary pb-1 pl-1 pr-1 sm:w-auto md:pr-0 md:pt-1">
+                  <div class="flex h-full w-full flex-col justify-center space-y-2 bg-dark p-16">
+                    <h2 class="mx-auto max-w-fit text-2xl font-semibold">
+                      Comité {comité.promo}
+                    </h2>
+                    <ul>
+                      <li>
+                        <strong>Président : </strong>
+                        {comité.président}
+                      </li>
+                      <li>
+                        <strong>Trésorier : </strong>
+                        {comité.trésorier}
+                      </li>
+                      <li>
+                        <strong>Secrétaire : </strong>
+                        {comité.secretaire}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="aspect-video flex-1">
+                  <Image
+                    class="h-full w-full rounded-lg object-cover"
+                    src={comité.imageComite}
+                    alt={`Comité ${comité.promo}`}
+                    quality={30}
+                    format="webp"
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <div class="aspect-video flex-1">
+                  <Image
+                    class="h-full w-full rounded-lg object-cover"
+                    src={comité.imageComite}
+                    alt={`Comité ${comité.promo}`}
+                    quality={30}
+                    format="webp"
+                  />
+                </div>
+                <div class="w-full bg-primary pb-1 pl-1 pr-1 sm:w-auto md:pl-0 md:pt-1">
+                  <div class="flex h-full w-full flex-col justify-center space-y-2 bg-dark p-16">
+                    <h2 class="mx-auto max-w-fit text-2xl font-semibold">
+                      Comité {comité.promo}
+                    </h2>
+                    <ul>
+                      <li>
+                        <strong>Président : </strong>
+                        {comité.président}
+                      </li>
+                      <li>
+                        <strong>Trésorier : </strong>
+                        {comité.trésorier}
+                      </li>
+                      <li>
+                        <strong>Secrétaire : </strong>
+                        {comité.secretaire}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </>
+            )}
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</Layout>
