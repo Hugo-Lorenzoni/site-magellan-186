@@ -58,13 +58,13 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} astro build
         working-directory: ${{ env.BUILD_PATH }}
 
-      - name: Create nginx html folder
-        run: mkdir -p ${{ env.NGINX_PATH }}
-        working-directory: ${{ env.BUILD_PATH }}
+      # - name: Create nginx html folder
+      #   run: mkdir -p ${{ env.NGINX_PATH }}
+      #   working-directory: ${{ env.BUILD_PATH }}
 
-      - name: Copy to nginx html folder
-        run: cp -r ${{ env.BUILD_PATH }}/dist/* ${{ env.NGINX_PATH }}
-        working-directory: ${{ env.BUILD_PATH }}
+      # - name: Copy to nginx html folder
+      #   run: cp -r ${{ env.BUILD_PATH }}/dist/* ${{ env.NGINX_PATH }}
+      #   working-directory: ${{ env.BUILD_PATH }}
 
   deploy:
     needs: build
@@ -73,4 +73,5 @@ jobs:
     steps:
       - name: Start Nginx container
         id: deployment
-        run: docker run -d -p 8080:80 --name astro-site -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro nginx:alpine || docker start astro-site
+        run: docker compose up -d
+        # run: docker run -d --restart unless-stopped -p 8080:80 --name astro-site -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro -v /path/to/config:/etc/nginx/conf.d:ro nginx:alpine || docker start astro-site
