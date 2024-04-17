@@ -74,4 +74,5 @@ jobs:
       - name: Start Nginx container
         id: deployment
         run: docker compose up -d
+        working-directory: ${{ env.BUILD_PATH }}/nginx
         # run: docker run -d --restart unless-stopped -p 8080:80 --name astro-site -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro -v /path/to/config:/etc/nginx/conf.d:ro nginx:alpine || docker start astro-site
