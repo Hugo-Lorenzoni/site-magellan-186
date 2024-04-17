@@ -73,4 +73,4 @@ jobs:
     steps:
       - name: Start Nginx container
         id: deployment
-        run: docker run -d -p 8080:80 --name astro-site -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro nginx:alpine || docker start astro-site
+        run: docker run -d -p 8080:80 --name astro-site -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro nginx:lastest || docker start astro-site
