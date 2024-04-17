@@ -7,6 +7,7 @@ import heroImage from "@images/isow-game22.jpg";
 import Web from "@icons/Web.astro";
 import Network from "@icons/Network.astro";
 import PC from "@icons/PC.astro";
+import LinkButton from "@components/LinkButton.astro";
 ---
 
 <Layout title="Accueil">
@@ -21,7 +22,7 @@ import PC from "@icons/PC.astro";
       format="webp"
     />
     <div
-      class="absolute inset-0 mx-auto flex max-w-7xl items-center px-4 py-16"
+      class="container absolute inset-0 mx-auto flex items-end px-4 py-16 md:items-center"
     >
       <div class="w-5/6 space-y-6 text-lg drop-shadow-normal md:w-1/2">
         <h1 class="text-4xl font-bold">
@@ -36,11 +37,40 @@ import PC from "@icons/PC.astro";
       </div>
     </div>
   </section>
-  <section class="container mx-auto mt-6 space-y-4 px-4">
-    <h2 class="text-3xl font-bold">Nos services</h2>
-    <ul class="flex flex-wrap justify-around gap-4 text-primary">
+  <section
+    class="container mx-auto mt-6 grid grid-cols-1 gap-6 space-y-4 px-4 md:grid-cols-[1fr_max-content]"
+  >
+    <div class="flex items-center">
+      <div class="space-y-6">
+        <h2 class="text-3xl font-bold">Nos services</h2>
+        <div class="space-y-1">
+          <p>
+            Le Cercle Magellan est le cercle informatique de la Faculté
+            Polytechnique de Mons.
+          </p>
+          <p>
+            Nous sommes en charge des réseaux internet des Cités Pierre Houzeau
+            de Lehaie et Jacques Franeau.
+          </p>
+          <p>
+            Nous disposons d'un local au sein de la Cité Houzeau (local 500) où
+            nous mettons à diposition des PC en accès libre avec une session
+            privée.
+          </p>
+          <p>
+            Nous offrons aussi de l'aide aux étudiants pour leur permettre
+            d'héberger votre site web en leur mettant, par exemple, à diposition
+            nos serveurs de manière totalement gratuite.
+          </p>
+        </div>
+        <div class="flex">
+          <LinkButton href="/contact" title="Contactez-nous" />
+        </div>
+      </div>
+    </div>
+    <ul class="grid grid-cols-1 justify-around gap-4 text-primary">
       <li
-        class="inline-flex items-center gap-4 rounded-2xl border-4 border-primary p-4 font-semibold"
+        class="inline-flex w-max items-center justify-center gap-4 rounded-2xl border-4 border-primary p-4 font-semibold md:w-auto"
       >
         <span class="flex size-24 items-center"><Network /></span><h3
           class="text-white"
@@ -49,7 +79,7 @@ import PC from "@icons/PC.astro";
         </h3>
       </li>
       <li
-        class="inline-flex items-center gap-4 rounded-2xl border-4 border-primary p-4 font-semibold"
+        class="inline-flex w-max items-center justify-center gap-4 rounded-2xl border-4 border-primary p-4 font-semibold md:w-auto"
       >
         <span class="flex size-24 items-center"><PC /></span><h3
           class="text-white"
@@ -58,7 +88,7 @@ import PC from "@icons/PC.astro";
         </h3>
       </li>
       <li
-        class="inline-flex items-center gap-4 rounded-2xl border-4 border-primary p-4 font-semibold"
+        class="inline-flex w-max items-center justify-center gap-4 rounded-2xl border-4 border-primary p-4 font-semibold md:w-auto"
       >
         <span class="flex size-24 items-center"><Web /></span><h3
           class="text-white"
