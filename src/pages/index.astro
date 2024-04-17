@@ -1,7 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro";
+
 import { Image } from "astro:assets";
 import heroImage from "@images/isow-game22.jpg";
+
+import Web from "@icons/Web.astro";
+import Network from "@icons/Network.astro";
+import PC from "@icons/PC.astro";
 ---
 
 <Layout title="Accueil">
@@ -30,5 +35,37 @@ import heroImage from "@images/isow-game22.jpg";
         </p>
       </div>
     </div>
+  </section>
+  <section class="container mx-auto mt-6 space-y-4 px-4">
+    <h2 class="text-3xl font-bold">Nos services</h2>
+    <ul class="flex flex-wrap justify-around gap-4 text-primary">
+      <li
+        class="inline-flex items-center gap-4 rounded-2xl border-4 border-primary p-4 font-semibold"
+      >
+        <span class="flex size-24 items-center"><Network /></span><h3
+          class="text-white"
+        >
+          Infrastucture réseau
+        </h3>
+      </li>
+      <li
+        class="inline-flex items-center gap-4 rounded-2xl border-4 border-primary p-4 font-semibold"
+      >
+        <span class="flex size-24 items-center"><PC /></span><h3
+          class="text-white"
+        >
+          PC en libre accès*
+        </h3>
+      </li>
+      <li
+        class="inline-flex items-center gap-4 rounded-2xl border-4 border-primary p-4 font-semibold"
+      >
+        <span class="flex size-24 items-center"><Web /></span><h3
+          class="text-white"
+        >
+          Hébergement web
+        </h3>
+      </li>
+    </ul>
   </section>
 </Layout>
