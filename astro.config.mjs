@@ -14,4 +14,5 @@ export default defineConfig({
     robotsTxt(),
   ],
   site: "https://magellan.fpms.ac.be",
+  output: "static",
 });
