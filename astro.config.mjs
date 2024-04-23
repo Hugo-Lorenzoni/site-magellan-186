@@ -13,5 +13,5 @@ export default defineConfig({
     }),
     robotsTxt(),
   ],
-  site: "http://magellan.fpms.ac.be",
+  site: "https://magellan.fpms.ac.be",
 });
