@@ -58,6 +58,10 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} astro build
         working-directory: ${{ env.BUILD_PATH }}
 
+      - name: Delete existing nginx html folder
+        run: rm -rf ${{ env.NGINX_PATH }}/*
+        working-directory: ${{ env.BUILD_PATH }}
+
       - name: Create nginx html folder
         run: mkdir -p ${{ env.NGINX_PATH }}
         working-directory: ${{ env.BUILD_PATH }}
