@@ -70,8 +70,19 @@ jobs:
         run: cp -r ${{ env.BUILD_PATH }}/dist/* ${{ env.NGINX_PATH }}
         working-directory: ${{ env.BUILD_PATH }}
 
-  deploy:
+  nginx:
     needs: build
+    runs-on: self-hosted
+    name: Nginx setup
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Copy Nginx configuration
+        run: cp ${{ github.workspace }}/nginx/config/* ~/nginx/config
+
+  deploy:
+    needs: nginx
     runs-on: self-hosted
     name: Deploy
     steps:
@@ -80,4 +91,4 @@ jobs:
 
       - name: Start Nginx container
         id: deployment
-        run: docker run -d -p 8080:80 --name astro-site -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro nginx:latest # || docker start astro-site
+        run: docker run -d -p 8080:80 --name astro-site -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro -v ~/nginx/conf:/etc/nginx nginx:latest # || docker start astro-site
