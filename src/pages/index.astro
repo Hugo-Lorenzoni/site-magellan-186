@@ -7,86 +7,136 @@ import heroImage from "@images/isow-game22.jpg";
 import Web from "@icons/Web.astro";
 import Network from "@icons/Network.astro";
 import PC from "@icons/PC.astro";
+
 import LinkButton from "@components/LinkButton.astro";
+import comité185 from "@images/comité185.jpg";
+
+const comité = {
+  promo: "185",
+  président: "Kevin Dubrulle ******",
+  trésorier: "Hugo Lorenzoni [*]***",
+  secretaire: "Lucy Bogaert *(*)*",
+  imageComite: comité185,
+};
 ---
 
 <Layout title="Accueil">
-  <section class="relative h-[calc(100vh-100px)] md:h-[60vh]">
-    <Image
-      class="-z-10 h-full object-cover"
-      src={heroImage}
-      alt="Ambiance au Game"
-      quality={30}
-      width={1920}
-      height={1280}
-      format="webp"
-    />
-    <div
-      class="container absolute inset-0 mx-auto flex items-end px-4 py-16 md:items-center"
-    >
-      <div class="w-5/6 space-y-6 text-lg drop-shadow-normal md:w-1/2">
-        <h1 class="text-4xl font-bold">
-          Le Cercle informatique de la Faculté Polytechnique de Mons
-        </h1>
+  <main class="space-y-6">
+    <section class="relative h-[calc(100vh-100px)] md:h-[60vh]">
+      <Image
+        class="-z-10 h-full object-cover"
+        src={heroImage}
+        alt="Ambiance au Game"
+        quality={30}
+        width={1920}
+        height={1280}
+        format="webp"
+      />
+      <div
+        class="container absolute inset-0 mx-auto flex items-end px-4 py-16 md:items-center"
+      >
+        <div class="w-5/6 space-y-6 text-lg drop-shadow-normal md:w-1/2">
+          <h1 class="text-4xl font-bold">
+            Le Cercle informatique de la Faculté Polytechnique de Mons
+          </h1>
 
-        <p>
-          Découvrez le Cercle informatique de la Faculté Polytechnique de Mons,
-          une association étudiante qui a pour but de promouvoir l'informatique
-          et les technologies de l'information auprès des étudiants.
-        </p>
-      </div>
-    </div>
-  </section>
-  <section
-    class="container mx-auto mt-6 grid grid-cols-1 gap-6 space-y-4 px-4 md:grid-cols-[1fr_max-content]"
-  >
-    <div class="flex items-center">
-      <div class="space-y-6">
-        <h2 class="text-3xl font-bold">Nos services</h2>
-        <div class="space-y-1">
           <p>
-            Le Cercle Magellan est le cercle informatique de la Faculté
-            Polytechnique de Mons.
-          </p>
-          <p>
-            Nous sommes en charge des réseaux internet des Cités Pierre Houzeau
-            de Lehaie et Jacques Franeau.
-          </p>
-          <p>
-            Nous disposons d'un local au sein de la Cité Houzeau (local 500) où
-            nous mettons à diposition des PC en accès libre avec une session
-            privée.
-          </p>
-          <p>
-            Nous offrons aussi de l'aide aux étudiants pour leur permettre
-            d'héberger votre site web en leur mettant, par exemple, à diposition
-            nos serveurs de manière totalement gratuite.
+            Découvrez le Cercle informatique de la Faculté Polytechnique de
+            Mons, une association étudiante qui a pour but de promouvoir
+            l'informatique et les technologies de l'information auprès des
+            étudiants.
           </p>
         </div>
-        <div class="flex">
-          <LinkButton href="/contact" title="Contactez-nous" />
+      </div>
+    </section>
+    <section
+      class="container mx-auto grid grid-cols-1 gap-6 space-y-4 px-4 md:grid-cols-[1fr_max-content]"
+    >
+      <div class="flex items-center">
+        <div class="space-y-6">
+          <h2 class="text-3xl font-bold">Nos services</h2>
+          <div class="space-y-1">
+            <p>
+              Le Cercle Magellan est le cercle informatique de la Faculté
+              Polytechnique de Mons.
+            </p>
+            <p>
+              Nous sommes en charge des réseaux internet des Cités Pierre
+              Houzeau de Lehaie et Jacques Franeau.
+            </p>
+            <p>
+              Nous disposons d'un local au sein de la Cité Houzeau (local 500)
+              où nous mettons à diposition des PC en accès libre avec une
+              session privée.
+            </p>
+            <p>
+              Nous offrons aussi de l'aide aux étudiants pour leur permettre
+              d'héberger votre site web en leur mettant, par exemple, à
+              diposition nos serveurs de manière totalement gratuite.
+            </p>
+          </div>
+          <div class="flex">
+            <LinkButton href="/contact" title="Contactez-nous" />
+          </div>
         </div>
       </div>
-    </div>
-    <ul class="grid grid-cols-1 justify-around gap-4 text-primary">
-      <li
-        class="flex flex-col items-center justify-center gap-8 rounded-2xl border-4 border-primary p-8 font-semibold sm:flex-row sm:gap-16 md:inline-flex md:gap-4 md:p-4"
-      >
-        <span class="flex w-48 items-center md:size-24"><Network /></span>
-        <h3 class="text-xl text-white">Infrastucture réseau</h3>
-      </li>
-      <li
-        class="flex flex-col items-center justify-center gap-8 rounded-2xl border-4 border-primary p-8 font-semibold sm:flex-row sm:gap-16 md:inline-flex md:gap-4 md:p-4"
-      >
-        <span class="flex w-48 items-center md:size-24"><PC /></span>
-        <h3 class="text-xl text-white">PC en libre accès*</h3>
-      </li>
-      <li
-        class="flex flex-col items-center justify-center gap-8 rounded-2xl border-4 border-primary p-8 font-semibold sm:flex-row sm:gap-16 md:inline-flex md:gap-4 md:p-4"
-      >
-        <span class="flex w-48 items-center md:size-24"><Web /></span>
-        <h3 class="text-xl text-white">Hébergement web</h3>
-      </li>
-    </ul>
-  </section>
+      <ul class="grid grid-cols-1 justify-around gap-4 text-primary">
+        <li
+          class="flex flex-col items-center justify-center gap-8 rounded-2xl border-4 border-primary p-8 font-semibold sm:flex-row sm:gap-16 md:inline-flex md:gap-4 md:p-4"
+        >
+          <span class="flex w-48 items-center md:size-24"><Network /></span>
+          <h3 class="text-xl text-white">Infrastucture réseau</h3>
+        </li>
+        <li
+          class="flex flex-col items-center justify-center gap-8 rounded-2xl border-4 border-primary p-8 font-semibold sm:flex-row sm:gap-16 md:inline-flex md:gap-4 md:p-4"
+        >
+          <span class="flex w-48 items-center md:size-24"><PC /></span>
+          <h3 class="text-xl text-white">PC en libre accès*</h3>
+        </li>
+        <li
+          class="flex flex-col items-center justify-center gap-8 rounded-2xl border-4 border-primary p-8 font-semibold sm:flex-row sm:gap-16 md:inline-flex md:gap-4 md:p-4"
+        >
+          <span class="flex w-48 items-center md:size-24"><Web /></span>
+          <h3 class="text-xl text-white">Hébergement web</h3>
+        </li>
+      </ul>
+    </section>
+    <section class="container mx-auto space-y-4 px-4">
+      <h2 class="text-3xl font-bold">Notre comité</h2>
+      <div class="overflow-hidden rounded-lg md:flex">
+        <div class="w-full bg-primary pl-1 pr-1 pt-1 sm:w-auto md:pb-1 md:pr-0">
+          <div
+            class="flex h-full w-full flex-col justify-center space-y-2 bg-dark p-16"
+          >
+            <h2 class="mx-auto max-w-fit text-2xl font-semibold">
+              Comité {comité.promo}
+            </h2>
+            <ul>
+              <li>
+                <strong>Président : </strong>
+                {comité.président}
+              </li>
+              <li>
+                <strong>Trésorier : </strong>
+                {comité.trésorier}
+              </li>
+              <li>
+                <strong>Secrétaire : </strong>
+                {comité.secretaire}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="aspect-video flex-1">
+          <Image
+            class="h-full w-full object-cover"
+            src={comité.imageComite}
+            alt={`Comité ${comité.promo}`}
+            quality={30}
+            format="webp"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>

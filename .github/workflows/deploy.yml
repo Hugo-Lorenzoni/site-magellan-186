@@ -58,6 +58,11 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} astro build
         working-directory: ${{ env.BUILD_PATH }}
 
+  nginx:
+    needs: build
+    runs-on: self-hosted
+    name: Nginx setup
+    steps:
       - name: Delete existing nginx html folder
         run: rm -rf ${{ env.NGINX_PATH }}/*
         working-directory: ${{ env.BUILD_PATH }}
@@ -70,11 +75,6 @@ jobs:
         run: cp -r ${{ env.BUILD_PATH }}/dist/* ${{ env.NGINX_PATH }}
         working-directory: ${{ env.BUILD_PATH }}
 
-  nginx:
-    needs: build
-    runs-on: self-hosted
-    name: Nginx setup
-    steps:
       - name: Make Nginx configuration directory
         run: mkdir -p ~/nginx/config
 
