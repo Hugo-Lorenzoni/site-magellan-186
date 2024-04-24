@@ -96,4 +96,4 @@ jobs:
             --name astro-site \
             -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro \
             -v ~/nginx/config:/etc/nginx \
-            nginx:latest
+            nginx:alpine
