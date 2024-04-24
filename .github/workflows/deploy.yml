@@ -78,6 +78,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Make Nginx configuration directory
+        run: mkdir -p ~/nginx/config
+
       - name: Copy Nginx configuration
         run: cp ${{ github.workspace }}/nginx/config/* ~/nginx/config
 
