@@ -94,6 +94,7 @@ jobs:
         run: |
           docker run -d -p 8080:80 \
             --name astro-site \
+            --restart unless-stopped
             -v ${{ env.NGINX_PATH }}:/usr/share/nginx/html:ro \
             -v ~/nginx/config:/etc/nginx \
             nginx:alpine
